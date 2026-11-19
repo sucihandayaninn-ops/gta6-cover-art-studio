@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111017">
+  <meta name="description" content="Your photo. Your crime story. An entirely offline, original neon cover art studio.">
+  <title>Viceframe — Cover Art Studio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fa669e'/%3E%3Cpath d='M12 16h10l8 28 8-28h10L35 50H25z' fill='%23111017'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Viceframe home"><span class="brand-mark">V<span>F</span></span><span>VICEFRAME<span class="brand-sub">COVER ART STUDIO</span></span></a>
+    <div class="top-tagline">YOUR PHOTO. <em>YOUR CRIME STORY.</em></div>
+    <span class="local-badge"><i></i> Offline &amp; on your device</span>
+  </header>
+  <main class="studio">
+    <aside class="library">
+      <div class="section-kicker"><span>01</span> CAST YOUR STORY</div>
+      <h1>Every legend<br>starts with you.</h1>
+      <label class="upload-zone" id="dropzone" tabindex="0" role="button" aria-label="Add photos from your device">
+        <span class="upload-icon" aria-hidden="true">↥</span><strong>Add your photos</strong><span>Choose files or drop them here</span>
+        <input id="photo" type="file" accept="image/*" multiple>
+      </label>
+      <div class="library-label">THE CAST <span>2 SAMPLES INCLUDED</span></div>
+      <div class="photo-library" id="photo-library"></div>
+      <button class="text-button fill-all" id="fill-all" type="button"><span>▧</span> Use selected photo in all panels <span>↗</span></button>
+      <div class="library-label scene-label">SET THE SCENE <span>ORIGINAL ART</span></div>
+      <div class="scene-library" id="scene-library"></div>
+      <div class="library-foot"><span class="tiny-lock">◈</span><div>Made here. Stays here.<small>Your photos never leave this browser.</small></div></div>
+    </aside>
+    <section class="workspace" aria-label="Live cover preview">
+      <div class="preview-toolbar"><div><span class="live-dot"></span> LIVE PREVIEW <span class="preview-divider">/</span> <span id="preview-size">1080 × 1080</span></div><button id="reset-all" class="text-button" type="button" title="Restore this sample's original composition">↺ Reset cover</button></div>
+      <div class="canvas-stage" id="canvas-stage"><canvas id="cover" width="1080" height="1080" tabindex="0" aria-label="Cover preview. Select a panel and drag to reposition its photo. Arrow keys move the selected crop."></canvas></div>
+      <div class="panel-tray"><span class="panel-tray-label">THE CUT<span>SELECT A PANEL</span></span><div id="panel-strip" class="panel-strip" role="group" aria-label="Select a cover panel"></div></div>
+      <div class="canvas-hint"><span>↔ &nbsp; Drag photo to frame it</span><span>⌖ &nbsp; Scroll to zoom</span><span class="auto-save">✦ &nbsp; Seven frames. One story.</span></div>
+    </section>
+    <aside class="inspector">
+      <div class="section-kicker"><span>02</span> MAKE IT LEGENDARY</div>
+      <label class="control-label" for="caption">THE TITLE <span id="caption-count">16 / 48</span></label>
+      <textarea id="caption" maxlength="48" rows="2" spellcheck="false">Sunset Syndicate</textarea>
+      <div class="control-label color-label">COLOR STORY <span>INK + GRADE</span></div>
+      <div id="grade-presets" class="grade-presets" role="group" aria-label="Color grade presets"></div>
+      <div class="crop-heading"><span class="control-label">FRAME <span id="active-panel-name">03 · THE LEAD</span></span><button type="button" id="reset-crop" class="text-button">Reset</button></div>
+      <div class="zoom-row"><span aria-hidden="true">−</span><input id="zoom" type="range" min="1" max="3.2" step="0.01" value="1" aria-label="Selected panel zoom"><span aria-hidden="true">+</span><output id="zoom-value">100%</output></div>
+      <p class="crop-hint">Click a frame, then pick a photo on the left.</p>
+      <div class="export-section"><div class="section-kicker"><span>03</span> TAKE IT TO THE STREETS</div>
+        <div class="format-switch" role="group" aria-label="Preview aspect ratio"><button type="button" data-format="square" aria-pressed="true">Square</button><button type="button" data-format="portrait" aria-pressed="false">Portrait</button><button type="button" data-format="wide" aria-pressed="false">Wide</button></div>
+        <button class="export-button primary" data-export="square" type="button"><span>Export square <small>1080 × 1080</small></span><span class="download-icon">↓</span></button>
+        <div class="secondary-exports"><button class="export-button" data-export="portrait" type="button"><span>Portrait<small>1080 × 1350</small></span><span>↓</span></button><button class="export-button" data-export="wide" type="button"><span>Widescreen<small>1920 × 1080</small></span><span>↓</span></button></div>
+        <div class="export-note"><span>PNG · FULL RESOLUTION</span><span>NO WATERMARK</span></div>
+      </div>
+      <p id="status" role="status" aria-live="polite">Ready when you are. Make your entrance.</p>
+      <div class="inspector-footer">ALL ORIGINAL. ALL YOURS. <span>V / 06</span></div>
+    </aside>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
